@@ -1,0 +1,2 @@
+# BeirRun
+Funny drinking game 
