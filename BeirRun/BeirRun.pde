@@ -1,7 +1,9 @@
 // declaration for files to be loaded for html embedding 
+/* @pjs preload="../images/levels/O'Murphy's.png"; */
+PImage bg;
 
 // Set the dimensions of the game screen. Also used to tell the player class where the walls of the game are.
-int width = 800;
+int width = 1000;
 int height = 800;
 // Following variables are used to initialize and control the player. 
 Player player;
@@ -17,17 +19,18 @@ int curr_time = 0;
 
 void setup()
 {
-  size(800,800);
+  size(1000,800);
   smooth();
   noStroke();
   background(255);
   player = new Player(start_x,start_y, height, width);
   speed = 5;
+  bg = loadImage("../images/levels/O'Murphy's.png");
 }
 
 void draw()
 {
-  background(255);
+  background(bg);
   if(keys[0] && keys[1]){
     direction = 1; 
   }else if(keys[1] && keys[2]){
