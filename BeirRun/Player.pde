@@ -6,7 +6,7 @@ class Player{
   // set the size of the character
   int size = 50;
   
-  public Player(int x, int y, int max_x, int max_y){
+  Player(int x, int y, int max_x, int max_y){
     this.x = x;
     this.y = y;
     this.max_x = max_x;

@@ -1,3 +1,5 @@
+// declaration for files to be loaded for html embedding 
+
 // Set the dimensions of the game screen. Also used to tell the player class where the walls of the game are.
 int width = 800;
 int height = 800;
@@ -9,6 +11,9 @@ int direction;
 int speed;
 // This checks whether or not specific keys are being pressed. keys[0] = 'w', keys[1] = 'd', keys[2] = 's', keys[3] = 'a'
 boolean[] keys = {false, false, false, false};
+// Instantiate times for use of timing the spawn of the next batch of drinks 
+int time_diff = 5000;
+int curr_time = 0;
 
 void setup()
 {
