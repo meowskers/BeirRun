@@ -1,6 +1,6 @@
 // Set the dimensions of the game screen. Also used to tell the player class where the walls of the game are.
-int width = 1000;
-int height = 1000;
+int width = 800;
+int height = 800;
 // Following variables are used to initialize and control the player. 
 Player player;
 int start_x = 500;
@@ -12,11 +12,11 @@ boolean[] keys = {false, false, false, false};
 
 void setup()
 {
-  size(start_x,start_y);
+  size(800,800);
   smooth();
   noStroke();
   background(255);
-  player = new Player(500,500);
+  player = new Player(start_x,start_y, height, width);
   speed = 5;
 }
 
