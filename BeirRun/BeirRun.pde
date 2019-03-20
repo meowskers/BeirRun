@@ -23,7 +23,7 @@ void setup()
   smooth();
   noStroke();
   background(255);
-  player = new Player(start_x,start_y, height, width);
+  player = new Player(start_x,start_y, width, height);
   speed = 5;
   bg = loadImage("../images/levels/O'Murphy's.png");
 }

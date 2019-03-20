@@ -13,6 +13,7 @@ class Player{
     this.max_y = max_y;
   }
   
+  // movement the player
   void move(int dir, int speed){
     float xVel = 0;
     float yVel = 0;
