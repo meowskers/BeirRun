@@ -45,24 +45,21 @@ class Player{
 
     }else if(dir == 6){
       xVel = -1;
-
     }else if(dir == 7){
       xVel = -1 * (1 / sqrt(2));
       yVel = -1 * (1 / sqrt(2));
 
     }
-    if(x <= size / 2 || x >= max_x - size / 2){
-      xVel *= -2;
+    if(x + xVel <= size / 4 || x +xVel >= max_x - size / 4){
+      xVel = 0;
     }
-     if(y <= size / 2 || y >= max_y - size / 2){
-      yVel *= -2;
+     if(y + yVel <= size / 4 || y + yVel >= max_y - size / 4){
+      yVel = 0;
     }
     for(int[] coords: hitbox){
-      if(x <= coords[0] - size / 2 || x >= coords[2] + size / 2){
-        xVel *= -1;
-      }
-      if(y <= coords[1] - size / 2 || y >= coords[3] + size / 2){
-        yVel *= -1;
+      if(x + xVel >= coords[0] - size / 4 && x + xVel <= coords[2] + size / 4 && y + yVel >= coords[1] - size / 4 && y + yVel <= coords[3] + size / 4){
+        xVel = 0;
+        yVel = 0;
       }
     }
     x += xVel * speed;
