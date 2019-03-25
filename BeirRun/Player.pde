@@ -49,21 +49,28 @@ class Player{
       xVel = -1 * (1 / sqrt(2));
       yVel = -1 * (1 / sqrt(2));
     }
-    // stop the player when they approach walls or hitboxes
-    if(x + xVel <= size / 4 || x +xVel >= max_x - size / 4){
-      xVel = 0;
+    x += xVel * speed;
+    y += yVel * speed;
+        // stop the player when they approach walls or hitboxes
+    if(x <= size / 4){
+      x = size / 4;
     }
-     if(y + yVel <= size / 4 || y + yVel >= max_y - size / 4){
-      yVel = 0;
+    if(x >= max_x - size){
+      x = max_x - size;
+    }
+    if(y <= size){
+      y = size;
+    }
+    if(y >= max_y - size){
+      y = max_y - size;
     }
     for(int[] coords: hitbox){
       if(x + xVel >= coords[0] - size / 4 && x + xVel <= coords[2] + size / 4 && y + yVel >= coords[1] - size / 4 && y + yVel <= coords[3] + size / 4){
-        xVel = 0;
-        yVel = 0;
+        x = x - xVel * speed;
+        y = y - yVel * speed;
       }
+
     }
-    x += xVel * speed;
-    y += yVel * speed;
   } 
   
   // drawing the player 
