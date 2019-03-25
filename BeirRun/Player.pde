@@ -8,6 +8,7 @@ class Player{
   // list of the restricted areas of the map, this includes the tables 
   ArrayList<int[]> hitbox;
   
+  // constructor for the player 
   Player(int x, int y, int max_x, int max_y){
     this.x = x;
     this.y = y;
@@ -24,7 +25,6 @@ class Player{
     // also check if the character is at the bounds
     if(dir == 0){
        yVel = -1;
-
     }else if(dir == 1){
       xVel = (1 / sqrt(2));
       yVel = -1 * (1 / sqrt(2));
@@ -48,8 +48,8 @@ class Player{
     }else if(dir == 7){
       xVel = -1 * (1 / sqrt(2));
       yVel = -1 * (1 / sqrt(2));
-
     }
+    // stop the player when they approach walls or hitboxes
     if(x + xVel <= size / 4 || x +xVel >= max_x - size / 4){
       xVel = 0;
     }
@@ -66,6 +66,7 @@ class Player{
     y += yVel * speed;
   } 
   
+  // drawing the player 
   void display(){
     fill(0);
     ellipse(x, y, 30, 30); 

@@ -19,22 +19,25 @@ int time_diff = 5000;
 int curr_time = 0;
 
 // Boolean used to see if the location of the pointer should be printed out for the purpose of finding the coordinates of the hitbox
-boolean hitbox_checker = true;
+boolean hitbox_checker = false;
 // CSVReader to take in the coordinates of the hitboxes 
 Table table;
 int x1,y1,x2,y2;
 
 void setup()
 {
+  // set the level of the map 
   level = "O'Murphy's";
   size(1000,800);
   smooth();
   noStroke();
   background(255);
+  bg = loadImage("../images/levels/" + level + ".png");
+  // create the player and set the speed of the player 
   player = new Player(start_x,start_y, width, height);
   speed = 5;
-  bg = loadImage("../images/levels/" + level + ".png");
-  table = loadTable("../hitboxes/" + level + ".csv", "header");
+  // add the hitboxes 
+  table = loadTable("../hitboxes/" + level + ".csv", "header"); 
   for(TableRow row: table.rows()){
     x1 = row.getInt("x1"); 
     y1 = row.getInt("y1"); 
@@ -46,8 +49,9 @@ void setup()
 
 void draw()
 {
+  // set the image as the background of the game
   background(bg);
-
+  // [ick the direction that the player is moving based on the keys pressed 
   if(keys[0] && keys[1]){
     direction = 1; 
   }else if(keys[1] && keys[2]){
@@ -67,10 +71,13 @@ void draw()
   }else{
     direction = -1; 
   }
+  // move the player 
   player.move(direction, speed);
+  // redraw the player 
   player.display();
 }
 
+// set the booleans of the key presses to true when pressed 
 void keyPressed(){
   if(key == 'w'){  
     keys[0] = true;
@@ -83,6 +90,7 @@ void keyPressed(){
   } 
 }
 
+// set the booleans of the key presses to false when released 
 void keyReleased(){
   if(key == 'w'){  
     keys[0] = false;
@@ -95,6 +103,7 @@ void keyReleased(){
   } 
 }
 
+// when the mouse is clicked, print out the coordinates. this is for setting up hitboxes. 
 void mouseClicked(){
   if(hitbox_checker){
     print(mouseX + ", " + mouseY + "\n");
