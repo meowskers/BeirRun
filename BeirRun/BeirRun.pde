@@ -12,6 +12,8 @@ int start_x = 500;
 int start_y = 500;
 int direction;
 int speed;
+// name for the character to pick the char image 
+String name;
 // This checks whether or not specific keys are being pressed. keys[0] = 'w', keys[1] = 'd', keys[2] = 's', keys[3] = 'a'
 boolean[] keys = {false, false, false, false};
 // Instantiate times for use of timing the spawn of the next batch of drinks 
@@ -34,7 +36,8 @@ void setup()
   background(255);
   bg = loadImage("../images/levels/" + level + ".png");
   // create the player and set the speed of the player 
-  player = new Player(start_x,start_y, width, height);
+  name = "Ed";
+  player = new Player(start_x,start_y, width, height, name);
   speed = 5;
   // add the hitboxes 
   table = loadTable("../hitboxes/" + level + ".csv", "header"); 
@@ -75,6 +78,7 @@ void draw()
   player.move(direction, speed);
   // redraw the player 
   player.display();
+  rotate(30);
 }
 
 // set the booleans of the key presses to true when pressed 

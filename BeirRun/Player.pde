@@ -7,14 +7,17 @@ class Player{
   int size = 50;
   // list of the restricted areas of the map, this includes the tables 
   ArrayList<int[]> hitbox;
+  // get the image for the character
+  PImage character;
   
   // constructor for the player 
-  Player(int x, int y, int max_x, int max_y){
+  Player(int x, int y, int max_x, int max_y, String name){
     this.x = x;
     this.y = y;
     this.max_x = max_x;
     this.max_y = max_y;
     hitbox = new ArrayList<int[]>();
+    character = loadImage("../images/characters/" + name + ".png");
   }
   
   // movement the player
@@ -75,8 +78,8 @@ class Player{
   
   // drawing the player 
   void display(){
-    fill(0);
-    ellipse(x, y, 30, 30); 
+    image(character, x, y, 40, 40);
+    
   }
   
   // add a pair of coordinates for the hitboxes within the map 
