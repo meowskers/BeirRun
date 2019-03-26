@@ -1,5 +1,7 @@
 // declaration for files to be loaded for html embedding 
 /* @pjs preload="../images/levels/O'Murphy's.png"; */
+/* @pjs preload="../images/characters/Ed.png"; */
+/* @pjs preload="../hitboxes/O'Murphy's.csv"; */
 PImage bg;
 String level;
 

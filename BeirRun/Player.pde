@@ -22,38 +22,38 @@ class Player{
   
   // movement the player
   void move(int dir, int speed){
-    float xVel = 0;
-    float yVel = 0;
+    float x_vel = 0;
+    float y_vel = 0;
     // based on the direction of the player, change the x and y velocities accordingly
     // also check if the character is at the bounds
     if(dir == 0){
-       yVel = -1;
+       y_vel = -1;
     }else if(dir == 1){
-      xVel = (1 / sqrt(2));
-      yVel = -1 * (1 / sqrt(2));
+      x_vel = (1 / sqrt(2));
+      y_vel = -1 * (1 / sqrt(2));
 
     }else if(dir == 2){
-      xVel = 1;
+      x_vel = 1;
 
     }else if(dir == 3){
-      xVel = (1 / sqrt(2));
-      yVel = (1 / sqrt(2));
+      x_vel = (1 / sqrt(2));
+      y_vel = (1 / sqrt(2));
 
     }else if(dir == 4){
-      yVel = 1;
+      y_vel = 1;
 
     }else if(dir == 5){
-      xVel = -1 * (1 / sqrt(2));
-      yVel = (1 / sqrt(2));
+      x_vel = -1 * (1 / sqrt(2));
+      y_vel = (1 / sqrt(2));
 
     }else if(dir == 6){
-      xVel = -1;
+      x_vel = -1;
     }else if(dir == 7){
-      xVel = -1 * (1 / sqrt(2));
-      yVel = -1 * (1 / sqrt(2));
+      x_vel = -1 * (1 / sqrt(2));
+      y_vel = -1 * (1 / sqrt(2));
     }
-    x += xVel * speed;
-    y += yVel * speed;
+    x += x_vel * speed;
+    y += y_vel * speed;
         // stop the player when they approach walls or hitboxes
     if(x <= size / 4){
       x = size / 4;
@@ -68,9 +68,9 @@ class Player{
       y = max_y - size;
     }
     for(int[] coords: hitbox){
-      if(x + xVel >= coords[0] - size / 4 && x + xVel <= coords[2] + size / 4 && y + yVel >= coords[1] - size / 4 && y + yVel <= coords[3] + size / 4){
-        x = x - xVel * speed;
-        y = y - yVel * speed;
+      if(x + x_vel >= coords[0] - size / 4 && x + x_vel <= coords[2] + size / 4 && y + y_vel >= coords[1] - size / 4 && y + y_vel <= coords[3] + size / 4){
+        x = x - x_vel * speed;
+        y = y - y_vel * speed;
       }
 
     }
@@ -78,7 +78,7 @@ class Player{
   
   // drawing the player 
   void display(){
-    image(character, x, y, 40, 40);
+    image(character, x, y, 55, 55);
     
   }
   
