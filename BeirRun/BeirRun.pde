@@ -26,7 +26,7 @@ int curr_time = 0;
 boolean hitbox_checker = false;
 // CSVReader to take in the coordinates of the hitboxes 
 //Table table;
-BufferedReader reader;
+String[] lines;
 String line;
 int[] coords;
 
@@ -52,22 +52,10 @@ void setup()
     y2 = row.getInt("y2"); 
     player.addHitboxCoords(x1,y1,x2,y2);
   }*/
-  reader = createReader("../hitboxes/" + level + ".csv");
-  try {
-    line = reader.readLine();
-  } catch (IOException e) {
-     e.printStackTrace();
-     line = null;
-  }
-  while(line != null){
-    try {
-      coords = int(split(line, ","));
-      player.addHitboxCoords(coords);
-      line = reader.readLine();
-    } catch (IOException e) {
-       e.printStackTrace();
-       line = null;
-    }
+  lines = loadStrings("../hitboxes/" + level + ".csv");
+  for(int i = 1; i < lines.length; i++){
+    coords = int(split(lines[i], ",")); 
+    player.addHitboxCoords(coords);
   }
 }
 
