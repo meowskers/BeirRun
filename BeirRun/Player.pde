@@ -83,12 +83,7 @@ class Player{
   }
   
   // add a pair of coordinates for the hitboxes within the map 
-  void addHitboxCoords(int x1, int y1, int x2, int y2){
-    int[] coords = new int[4];
-    coords[0] = x1;
-    coords[1] = y1;
-    coords[2] = x2;
-    coords[3] = y2;
+  void addHitboxCoords(int[] coords){
     hitbox.add(coords);
   }
   

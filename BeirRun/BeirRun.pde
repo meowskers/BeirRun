@@ -25,8 +25,10 @@ int curr_time = 0;
 // Boolean used to see if the location of the pointer should be printed out for the purpose of finding the coordinates of the hitbox
 boolean hitbox_checker = false;
 // CSVReader to take in the coordinates of the hitboxes 
-Table table;
-int x1,y1,x2,y2;
+//Table table;
+BufferedReader reader;
+String line;
+int[] coords;
 
 void setup()
 {
@@ -42,13 +44,30 @@ void setup()
   player = new Player(start_x,start_y, width, height, name);
   speed = 5;
   // add the hitboxes 
-  table = loadTable("../hitboxes/" + level + ".csv", "header"); 
+  /*table = loadTable("../hitboxes/" + level + ".csv", "header"); 
   for(TableRow row: table.rows()){
     x1 = row.getInt("x1"); 
     y1 = row.getInt("y1"); 
     x2 = row.getInt("x2"); 
     y2 = row.getInt("y2"); 
     player.addHitboxCoords(x1,y1,x2,y2);
+  }*/
+  reader = createReader("../hitboxes/" + level + ".csv");
+  try {
+    line = reader.readLine();
+  } catch (IOException e) {
+     e.printStackTrace();
+     line = null;
+  }
+  while(line != null){
+    try {
+      coords = int(split(line, ","));
+      player.addHitboxCoords(coords);
+      line = reader.readLine();
+    } catch (IOException e) {
+       e.printStackTrace();
+       line = null;
+    }
   }
 }
 
