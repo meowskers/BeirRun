@@ -16,6 +16,9 @@ int direction;
 int speed;
 // name for the character to pick the char image 
 String name;
+// Variable(s) for drinks
+Drink drink;
+
 // This checks whether or not specific keys are being pressed. keys[0] = 'w', keys[1] = 'd', keys[2] = 's', keys[3] = 'a'
 boolean[] keys = {false, false, false, false};
 // Instantiate times for use of timing the spawn of the next batch of drinks 
@@ -57,6 +60,8 @@ void setup()
     coords = int(split(lines[i], ",")); 
     player.addHitboxCoords(coords);
   }
+  // create drinks
+  drink = new Drink(width, height, player.hitbox);
 }
 
 void draw()
@@ -83,11 +88,14 @@ void draw()
   }else{
     direction = -1; 
   }
+  
   // move the player 
   player.move(direction, speed);
   // redraw the player 
   player.display();
-  rotate(30);
+  //drink check+move
+  drink.serve(width, height, player);
+  drink.display();
 }
 
 // set the booleans of the key presses to true when pressed 
