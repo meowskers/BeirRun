@@ -8,7 +8,7 @@ class Player{
   // list of the restricted areas of the map, this includes the tables 
   ArrayList<int[]> hitbox;
   // get the image for the character
-  PImage character;
+  PImage[] character_images = new PImage[8];
   
   // constructor for the player 
   Player(int x, int y, int max_x, int max_y, String name){
@@ -17,38 +17,42 @@ class Player{
     this.max_x = max_x;
     this.max_y = max_y;
     hitbox = new ArrayList<int[]>();
-    character = loadImage("../images/characters/" + name + ".png");
+    for(int i = 0; i < 8; i++){
+      int image_num = i + 1;
+      character_images[i] = loadImage("../images/characters/" + name + "/" + name + image_num + ".png");
+    }
+    
   }
   
   // movement the player
-  void move(int dir, int speed){
+  void move(int direction, int speed){
     float x_vel = 0;
     float y_vel = 0;
-    // based on the direction of the player, change the x and y velocities accordingly
+    // based on the directionection of the player, change the x and y velocities accordingly
     // also check if the character is at the bounds
-    if(dir == 0){
+    if(direction == 0){
        y_vel = -1;
-    }else if(dir == 1){
+    }else if(direction == 1){
       x_vel = (1 / sqrt(2));
       y_vel = -1 * (1 / sqrt(2));
 
-    }else if(dir == 2){
+    }else if(direction == 2){
       x_vel = 1;
 
-    }else if(dir == 3){
+    }else if(direction == 3){
       x_vel = (1 / sqrt(2));
       y_vel = (1 / sqrt(2));
 
-    }else if(dir == 4){
+    }else if(direction == 4){
       y_vel = 1;
 
-    }else if(dir == 5){
+    }else if(direction == 5){
       x_vel = -1 * (1 / sqrt(2));
       y_vel = (1 / sqrt(2));
 
-    }else if(dir == 6){
+    }else if(direction == 6){
       x_vel = -1;
-    }else if(dir == 7){
+    }else if(direction == 7){
       x_vel = -1 * (1 / sqrt(2));
       y_vel = -1 * (1 / sqrt(2));
     }
@@ -77,9 +81,12 @@ class Player{
   } 
   
   // drawing the player 
-  void display(){
-    image(character, x, y, 55, 55);
-    
+  void display(int direction){
+    if(direction == -1){
+      image(character_images[0], x, y, 55, 55);
+    }else{
+      image(character_images[direction], x, y, 55, 55);
+    }
   }
   
   // add a pair of coordinates for the hitboxes within the map 

@@ -1,6 +1,6 @@
 // declaration for files to be loaded for html embedding 
 /* @pjs preload="../images/levels/O'Murphy's.png"; */
-/* @pjs preload="../images/characters/Ed.png"; */
+/* @pjs preload="../images/characters/Ed/*.png"; */
 /* @pjs preload="../hitboxes/O'Murphy's.csv"; */
 PImage bg;
 String level;
@@ -46,15 +46,6 @@ void setup()
   name = "Ed";
   player = new Player(start_x,start_y, width, height, name);
   speed = 5;
-  // add the hitboxes 
-  /*table = loadTable("../hitboxes/" + level + ".csv", "header"); 
-  for(TableRow row: table.rows()){
-    x1 = row.getInt("x1"); 
-    y1 = row.getInt("y1"); 
-    x2 = row.getInt("x2"); 
-    y2 = row.getInt("y2"); 
-    player.addHitboxCoords(x1,y1,x2,y2);
-  }*/
   lines = loadStrings("../hitboxes/" + level + ".csv");
   for(int i = 1; i < lines.length; i++){
     coords = int(split(lines[i], ",")); 
@@ -92,7 +83,7 @@ void draw()
   // move the player 
   player.move(direction, speed);
   // redraw the player 
-  player.display();
+  player.display(direction);
   //drink check+move
   drink.serve(width, height, player);
   drink.display();
