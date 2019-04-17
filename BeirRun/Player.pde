@@ -9,6 +9,8 @@ class Player{
   ArrayList<int[]> hitbox;
   // get the image for the character
   PImage[] character_images = new PImage[8];
+  // this counts how distorted the game should be for the player 
+  int distort = 0;
   
   // constructor for the player 
   Player(int x, int y, int max_x, int max_y, String name){
@@ -94,4 +96,9 @@ class Player{
     hitbox.add(coords);
   }
   
+  // drink function, when the player is next to a drink the drink class will call this function 
+  void drink(){
+    distort++;
+    print(distort + "\n");
+  }
 }

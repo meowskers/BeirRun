@@ -33,6 +33,7 @@ class Drink{
     if(this.x-this.size <= p.x+p.size && this.x+this.size >= p.x && this.y-this.size <= p.y+p.size && this.y+this.size >= p.y){
       this.x = (int)random(40,x);
       this.y = (int)random(40,y);
+      p.drink();
       int count = 0;
       //attempt to prevent drink from spawning in a hitbox - helps a little but not all the time
       while(count < (hitbox.size())){
