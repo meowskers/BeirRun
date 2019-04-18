@@ -18,7 +18,6 @@ int speed;
 String name;
 // Variable(s) for drinks
 Drink drink;
-<<<<<<< HEAD
 // Hold the distortion object
 Distort distort;
 // keep track of the time of the game 
@@ -100,7 +99,7 @@ void draw()
   // redraw the player 
   player.display(direction);
   //drink check+move
-  drink.serve(width, height, player);
+  drink.move(player);
   drink.display();
 
   if(millis() > next_distort){
