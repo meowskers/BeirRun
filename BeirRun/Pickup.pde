@@ -8,6 +8,9 @@ class Pickup{
   int size = 10;
   ArrayList<int[]> hitbox;
   
+  PImage[] sprites;
+  int sprite_index;
+  
   //implemented where the pickup x/y values are the center of the drink and the players x/y values are the players top left corner
   
   //input x/y should be width/height of map
