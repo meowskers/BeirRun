@@ -18,6 +18,10 @@ int speed;
 String name;
 // Variable(s) for drinks
 Drink drink;
+// Hold the distortion object
+Distort distort;
+// keep track of the time of the game 
+int next_distort;
 
 // This checks whether or not specific keys are being pressed. keys[0] = 'w', keys[1] = 'd', keys[2] = 's', keys[3] = 'a'
 boolean[] keys = {false, false, false, false};
@@ -32,6 +36,7 @@ boolean hitbox_checker = false;
 String[] lines;
 String line;
 int[] coords;
+
 
 void setup()
 {
@@ -53,6 +58,9 @@ void setup()
   }
   // create drinks
   drink = new Drink(width, height, player.hitbox);
+  // create the Distort class;
+  distort = new Distort(width, height, 20);
+  next_distort = 1000;
 }
 
 void draw()
@@ -87,6 +95,11 @@ void draw()
   //drink check+move
   drink.serve(width, height, player);
   drink.display();
+  if(millis() > next_distort){
+    distort.randomize();
+    next_distort += 1000;
+  }
+  distort.pixelate();
 }
 
 // set the booleans of the key presses to true when pressed 
