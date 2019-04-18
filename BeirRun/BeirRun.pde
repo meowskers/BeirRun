@@ -18,6 +18,7 @@ int speed;
 String name;
 // Variable(s) for drinks
 Drink drink;
+Powerup food;
 
 // This checks whether or not specific keys are being pressed. keys[0] = 'w', keys[1] = 'd', keys[2] = 's', keys[3] = 'a'
 boolean[] keys = {false, false, false, false};
@@ -53,6 +54,7 @@ void setup()
   }
   // create drinks
   drink = new Drink(width, height, player.hitbox);
+  food = new Powerup(width, height, player.hitbox);
 }
 
 void draw()
@@ -87,6 +89,8 @@ void draw()
   //drink check+move
   drink.serve(width, height, player);
   drink.display();
+  food.move(player);
+  food.display();
 }
 
 // set the booleans of the key presses to true when pressed 
