@@ -23,7 +23,7 @@ Distort distort;
 // keep track of the time of the game 
 int next_distort;
 
-Powerup food;
+//Powerup food;
 
 // This checks whether or not specific keys are being pressed. keys[0] = 'w', keys[1] = 'd', keys[2] = 's', keys[3] = 'a'
 boolean[] keys = {false, false, false, false};
@@ -59,13 +59,13 @@ void setup()
     player.addHitboxCoords(coords);
   }
   // create drinks
-  drink = new Drink(width, height, player.hitbox);
+  drink = new Drink(width, height, player.hitbox, level);
 
   // create the Distort class;
   distort = new Distort(width, height, 20);
   next_distort = 1000;
 
-  food = new Powerup(width, height, player.hitbox);
+  //food = new Powerup(width, height, player.hitbox);
 
 }
 
@@ -99,7 +99,7 @@ void draw()
   // redraw the player 
   player.display(direction);
   //drink check+move
-  drink.serve(width, height, player);
+  drink.move(player);
   drink.display();
 
   if(millis() > next_distort){
@@ -108,8 +108,8 @@ void draw()
   }
   distort.pixelate();
 
-  food.move(player);
-  food.display();
+  //food.move(player);
+  //food.display();
 
 }
 
