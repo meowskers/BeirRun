@@ -5,7 +5,7 @@ Beirrun is a fun 2-D drinking simulator which is being made for a Open Source Cl
 Welcome! If you would like to contribute to this project contact one of the contributors at the bottom of this markdown or refer to our contributors guidelines. A great way to help the project is to play! We are always looking for feedback on gameplay, features and way to make it better. Constructive criticism is always welcome but please be kind and courtious.  
 
 ## Grading.md
-This is for use of our Professor and our TA's to help with grading of this project. Contains links to all necessary documents, code and website
+This is for use of our Professor and our TA's to help with grading of this project. Contains links to all necessary documents, code and website. Link is [here](Grading.md).
 
 ### Contributors  
 - [Max Escaler](https://github.com/Max-Escaler) 

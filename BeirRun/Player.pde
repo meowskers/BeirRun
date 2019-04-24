@@ -21,7 +21,7 @@ class Player{
     hitbox = new ArrayList<int[]>();
     for(int i = 0; i < 8; i++){
       int image_num = i + 1;
-      character_images[i] = loadImage("../images/characters/" + name + "/" + name + image_num + ".png");
+      character_images[i] = loadImage("../images/characters/" + name + "/" + image_num + ".png");
     }
     
   }
