@@ -30,6 +30,16 @@ class Player{
   void move(int direction, int speed){
     float x_vel = 0;
     float y_vel = 0;
+    
+    //random direction
+    int r_direction = -1;
+    float x_distort = 0;
+    float y_distort = 0;
+    
+    
+    if(direction != -1){
+      r_direction = (int)random(-16,8);
+    }
     // based on the directionection of the player, change the x and y velocities accordingly
     // also check if the character is at the bounds
     if(direction == 0){
@@ -58,8 +68,37 @@ class Player{
       x_vel = -1 * (1 / sqrt(2));
       y_vel = -1 * (1 / sqrt(2));
     }
-    x += x_vel * speed;
-    y += y_vel * speed;
+    
+    //calculate level of movement/control distortion
+    if(r_direction == 0){
+       y_distort = -distort;
+    }else if(r_direction == 1){
+      x_distort = (distort / sqrt(2));
+      y_distort = -1 * (distort / sqrt(2));
+
+    }else if(r_direction == 2){
+      x_distort = distort;
+
+    }else if(r_direction == 3){
+      x_distort = (distort / sqrt(2));
+      y_distort = (distort / sqrt(2));
+
+    }else if(r_direction == 4){
+      y_distort = distort;
+
+    }else if(r_direction == 5){
+      x_distort = -1 * (distort / sqrt(2));
+      y_distort = (distort / sqrt(2));
+
+    }else if(r_direction == 6){
+      x_distort = -distort;
+    }else if(r_direction == 7){
+      x_distort = -1 * (distort / sqrt(2));
+      y_distort = -1 * (distort / sqrt(2));
+    }
+    
+    x += x_vel * speed + x_distort;
+    y += y_vel * speed + y_distort;
         // stop the player when they approach walls or hitboxes
     if(x <= size / 4){
       x = size / 4;
@@ -75,8 +114,8 @@ class Player{
     }
     for(int[] coords: hitbox){
       if(x + x_vel >= coords[0] - size / 4 && x + x_vel <= coords[2] + size / 4 && y + y_vel >= coords[1] - size / 4 && y + y_vel <= coords[3] + size / 4){
-        x = x - x_vel * speed;
-        y = y - y_vel * speed;
+        x = x - x_vel * speed - x_distort;
+        y = y - y_vel * speed - y_distort;
       }
 
     }
