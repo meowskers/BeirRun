@@ -1,0 +1,65 @@
+@font-face{
+  font-family: 'great_lakes_nfregular';
+  src: url('/Assets/fonts/greatlakesnf-webfont.woff2') format('woff2'),
+  url('Assets/fonts/greatlakesnf-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+body {
+	background-color: lightblue;
+}
+
+img.logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  object-fit: cover;
+  position:relative;
+  height: 120px;
+}
+
+canvas{
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height:38vw;
+    float: center;
+}
+
+script{
+	align-content: middle;
+}
+
+ul.left{
+	font-family: great_lakes_nfregular;
+  margin-right: 4%;
+  font: inherit;
+	float: left;
+	width: 300px;
+	word-wrap: break-word;
+}
+li{
+  font-size: 1vw;
+  font-family: great_lakes_nfregular;
+
+}
+
+
+ul.right
+{
+  margin-right: 100px;
+  width: 300px;
+  float:right;
+  text-align: left;
+}
+
+li.title
+{
+  list-style-type: none;
+  font-size: 2vw;
+}
