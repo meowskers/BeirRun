@@ -23,7 +23,7 @@ Does your project have a Code of Conduct and can you find it?
 - We have a [Code of Conduct](asdfasdf) and it is located in the repository and linked in the README.md 
 
 Does your project have a style guidelines document and can you find it?
--  We have a [style guidelines](asdfasdf) and it is located in the repository and linked in the README.md
+-  We have a [Style Guide](https://github.com/meowskers/BeirRun/blob/master/Style%20Guide.md) and it is located in the repository and linked in the README.md
 
 Does your project have comunications channels and can you find them?  
 - We have a private [discussion forum](https://chat.rcos.io/open-source/channels/beirrun) for developers
