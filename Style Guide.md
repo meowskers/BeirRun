@@ -8,13 +8,13 @@ For Example:
 thisIsAFunction()
 ```
 ### Variables
-Varibales should be Snake Case. Snake case is the practice of writing compound words or phrases in which the elements are separated with one underscore character (_) and no spaces, and all lower case.
+Varibales should be Snake Case. Snake case is the practice of writing compound words or phrases in which the elements are separated with one underscore character (_) and no spaces, and all lower case.  
 For Example:
 ```python
 int this_is_a_variable = 0
 ```
 ### Classes
-Classes should be captilized with no spaces or punctuation to intervene. 
+Classes should be captilized with no spaces or punctuation to intervene.  
 For Example:
 ```python
 class ThisIsAClass
