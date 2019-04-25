@@ -78,7 +78,7 @@ void setup()
   lines = loadStrings("../hitboxes/" + level + ".csv");
   
   // create the player and set the speed of the player 
-  name = "Cam";
+  name = "Ed";
   player = new Player(start_x,start_y, width, height, name);
   speed = 5;
   for(int i = 1; i < lines.length; i++){
@@ -103,6 +103,8 @@ void draw()
     // main menu
     background(255, 170, 0);
     image(logo, 118, 0, 750, 420);
+    textFont(font);
+    fill(255);
     text("PLAY", width/2, height/2);
     text("SETTINGS", width/2, width/2);
     
@@ -150,7 +152,6 @@ void draw()
     //food.move(player);
     //food.display();
     
-    fill(999,999,999);
     textSize(15);
     time_left= game_length - (millis()-game_start)/1000;
     text("Time Left: "+time_left,50,6);
