@@ -14,7 +14,7 @@ Does your project have testing and/or continous integration and do you use it?
 - We have set up a [Website](https://max-escaler.github.io/BeirRun/) and are use beta testing. Our first beta session is (4/26/2019) during our presentation
 
 Does your project have a contributions guidelines and can you find them?
-- We have a [Contribution Guidelines](asdfasdf)
+- We have a [Contribution Guidelines](CONTRIBUTING.md) and it is located in the repostiroy and linked in the README.md  
 
 Does your proejct have a website and can you find them?
 - We have a [Website](https://max-escaler.github.io/BeirRun/) and there are mutliple links through out the repository including one in our README.md  
