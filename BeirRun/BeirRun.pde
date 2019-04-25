@@ -167,7 +167,8 @@ void draw()
       state = 4;
     }
   }else if(state == 2){
-    // in the settings menu  
+    // in the settings menu 
+    textFont(font);
     background(255, 170, 0);
     image(logo, 118, 0, 750, 420);
     fill(255);
@@ -216,6 +217,12 @@ void draw()
     
   }else if(state == 3){
     // in the paused menu
+    textFont(font);
+    background(255, 170, 0);
+    image(logo, 118, 0, 750, 420);
+    fill(255);
+    text("RESUME", width/2, height/2);
+    text("EXIT", width/2, width/2);
   }else if(state == 4){
     textSize(80);
     fill(0,0,0);
@@ -327,6 +334,11 @@ void mouseClicked(){
     }
   }else if(state == 3){
     // pause menu  
+    if(mouseX >= 454 && mouseX <= 543 && mouseY >= 387 && mouseY <= 424){
+      state = 1;
+    }else if(mouseX >= 429 && mouseX <= 575 && mouseY >= 485 && mouseY <= 526){
+      state = 0; 
+    }
   }else if(state == 4){
     state = 0;
   }
