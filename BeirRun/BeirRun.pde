@@ -60,31 +60,27 @@ int[] coords;
 
 void setup()
 {
-  // set the game state
-  state = 0;
-  // setup for the main menu of the game 
-  logo = loadImage("Assets/logo.png");
-  font = createFont("fantasy", 32);
-  textFont(font);
-  textAlign(CENTER, CENTER);
-  
-  // set the level of the map 
-  level = "OMurphys";
+  // setup of the game screen
   size(1000,800);
   smooth();
   noStroke();
   background(255);
-  bg = loadImage("../images/levels/" + level + "/1.png");
-  lines = loadStrings("../hitboxes/" + level + ".csv");
   
-  // create the player and set the speed of the player 
+  // set the game state
+  state = 0;
+  // setup for the main menu of the game 
+  logo = loadImage("Assets/logo.png");
+  font = createFont("Georgia", 32);
+  textFont(font);
+  textAlign(CENTER, CENTER);
+  
+  // set the level and character
+  level = "OMurphys";
   name = "Ed";
   player = new Player(start_x,start_y, width, height, name);
   speed = 5;
-  for(int i = 1; i < lines.length; i++){
-    coords = int(split(lines[i], ",")); 
-    player.addHitboxCoords(coords);
-  }
+  
+
   
   // create drinks
   drink = new Drink(width, height, player.hitbox, level);
@@ -156,7 +152,7 @@ void draw()
     //food.display();
     
     textSize(15);
-    time_left= game_length - (millis()-game_start)/1000;
+    time_left= int(game_length - (millis()-game_start)/1000);
     text("Time Left: "+time_left,50,6);
     text("Score: "+player.distort,950,6);
     if(time_left <= 0){
@@ -188,8 +184,38 @@ void draw()
   }
 }
 
+// set the level map and the character.
+// this is used for the setup and for the settings menu 
+void gameSettings(String level, String character){
+  // set the level of the map 
+  this.level = level;
+  bg = loadImage("../images/levels/" + level + "/1.png");
+  lines = loadStrings("../hitboxes/" + level + ".csv");
+  
+  // create the player and set the speed of the player 
+  name = character;
+
+  // reset and add the hitbox coords
+  player.resetHitboxCoords();
+
+  for(int i = 1; i < lines.length; i++){
+    coords = int(split(lines[i], ",")); 
+    // alter the top and left coords to adjust for the characters hitbox being the top left pixel of the image 
+    coords[0] -= player.size;
+    coords[1] -= player.size;
+    player.addHitboxCoords(coords);
+  }
+}
+
 // set the booleans of the key presses to true when pressed 
 void keyPressed(){
+  if(key == 'p'){
+    if(state == 1){
+      state = 3;  
+    }else if(state == 3){
+      state = 1;
+    }
+  }
   if(key == 'w'){  
     keys[0] = true;
   }else if(key == 'd'){
@@ -235,11 +261,18 @@ void mouseClicked(){
     // play game  
   }else if(state == 2){
     // settings  
+    // change the map that is being used 
     if(mouseX >= 244 && mouseX <= 418 && mouseY >= 431 && mouseY <= 459){
       level = "OMurphys";
     }else if(mouseX >= 572 && mouseX <= 760 && mouseY >= 431 && mouseY <= 459){
       level = "BeirMeadow";
-    }else if(mouseX >= 454 && mouseX <= 542 && mouseY >= 588 && mouseY <= 623){
+    }
+    // change the character that is being used 
+    
+    // exit back to the main menu 
+    else if(mouseX >= 454 && mouseX <= 542 && mouseY >= 588 && mouseY <= 623){
+      // apply the changes to the game
+      gameSettings(level, name);
       state = 0; 
     }
   }else if(state == 3){

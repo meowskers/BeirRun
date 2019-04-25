@@ -1,8 +1,6 @@
 // declaration for files to be loaded for html embedding 
 // this is for the font 
-/* @pjs font="./Assets/fonts/greatlakesnf.ttf"; */
-/* @pjs font="./Assets/fonts/greatlakesnf-webfont.woff"; */
-/* @pjs font="./Assets/fonts/greatlakesnf-webfont.woff2"; */
+
 // these are for the map images
 /* @pjs preload="../images/levels/OMurphys/1.png"; */
 /* @pjs preload="../images/levels/OMurphys/2.png"; */
