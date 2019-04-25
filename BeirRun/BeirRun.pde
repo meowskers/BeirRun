@@ -44,8 +44,9 @@ int time_diff = 5000;
 int curr_time = 0;
 
 //max time/game timer variables
-int start_time = 120;
-int time_left = start_time;
+int game_length = 120;
+int time_left;
+int game_start;
 
 // Boolean used to see if the location of the pointer should be printed out for the purpose of finding the coordinates of the hitbox
 boolean hitbox_checker = true;
@@ -77,7 +78,7 @@ void setup()
   lines = loadStrings("../hitboxes/" + level + ".csv");
   
   // create the player and set the speed of the player 
-  name = "Ed";
+  name = "Cam";
   player = new Player(start_x,start_y, width, height, name);
   speed = 5;
   for(int i = 1; i < lines.length; i++){
@@ -110,6 +111,7 @@ void draw()
     
     // set the image as the background of the game
     background(bg);
+    
     // [ick the direction that the player is moving based on the keys pressed 
     if(keys[0] && keys[1]){
       direction = 1; 
@@ -150,7 +152,7 @@ void draw()
     
     fill(999,999,999);
     textSize(15);
-    time_left= start_time - millis()/1000;
+    time_left= game_length - (millis()-game_start)/1000;
     text("Time Left: "+time_left,50,6);
     text("Score: "+player.distort,950,6);
     if(time_left <= 0){
@@ -204,7 +206,9 @@ void mouseClicked(){
   if(state == 0){
     // main menu
     if(mouseX >= 454 && mouseX <= 543 && mouseY >= 387 && mouseY <= 424){
-      state = 1; 
+      state = 1;
+      game_start = millis();
+      time_left = game_length;
     }else if(mouseX >= 429 && mouseX <= 575 && mouseY >= 485 && mouseY <= 526){
       state = 2; 
     }

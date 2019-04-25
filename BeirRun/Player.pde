@@ -97,8 +97,8 @@ class Player{
       y_distort = -1 * (distort / sqrt(2));
     }
     
-    x += x_vel * speed + x_distort;
-    y += y_vel * speed + y_distort;
+    x += x_vel * speed + x_distort/2;
+    y += y_vel * speed + y_distort/2;
         // stop the player when they approach walls or hitboxes
     if(x <= size / 4){
       x = size / 4;
