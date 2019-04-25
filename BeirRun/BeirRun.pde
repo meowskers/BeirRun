@@ -1,9 +1,14 @@
 
 // used to see if the game should be at the main menu or not 
-boolean main;
 PImage logo;
-// used to pause the game on and off
-boolean pause;
+PFont font;
+
+// keeps track of the current state of the game
+// 0 = main menu
+// 1 = play game 
+// 2 = settings menu 
+// 3 = pause menu 
+int state;
 
 // set the image for the level 
 PImage bg;
@@ -50,12 +55,15 @@ int[] coords;
 void setup()
 {
   // set the game setting booleans 
-  main = false;
+  main = true;
   pause = false;
+  settings = false;
   
   // setup for the main menu of the game 
   logo = loadImage("Assets/logo.png");
-  
+  font = createFont("Assets/fonts/greatlakesnf.ttf", 32);
+  textFont(font);
+  textAlign(CENTER, CENTER);
   
   // set the level of the map 
   level = "OMurphys";
@@ -88,10 +96,15 @@ void setup()
 
 void draw()
 {
-  if(main){
-    background(255, 235, 0);
+  if(state == 0){
+    // main menu
+    background(255, 170, 0);
     image(logo, 118, 0, 750, 420);
-  }else{
+    text("PLAY", width/2, height/2);
+    text("SETTINGS", width/2, width/2);
+    
+  }else if(state == 1){
+    // playing the game 
     
     // set the image as the background of the game
     background(bg);
@@ -132,6 +145,10 @@ void draw()
   
     //food.move(player);
     //food.display();
+  }else if(state == 2){
+    // in the settings menu  
+  }else if(state == 3){
+    // in the paused menu  
   }
 }
 
@@ -161,9 +178,23 @@ void keyReleased(){
   } 
 }
 
-// when the mouse is clicked, print out the coordinates. this is for setting up hitboxes. 
+// function for when the mouse is clicked. handles finding hitboxes and changing game states (game, menu, pause)
 void mouseClicked(){
+  // this is to find mouseX and mouseY for debugging and finding hitboxes 
   if(hitbox_checker){
     print(mouseX + ", " + mouseY + "\n");
   }
+  // this is for the changing of gamestates
+  // check the coordinates of the mouse and depending on the current game state, has options of different coords to change the game state 
+  if(state == 0){
+    // main menu
+    
+  }else if(state == 1){
+    // play game  
+  }else if(state == 2){
+    // settings  
+  }else if(state == 3){
+    // pause menu  
+  }
+  
 }
