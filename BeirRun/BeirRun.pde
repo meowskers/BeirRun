@@ -102,7 +102,8 @@ void draw()
     
   }else if(state == 1){
     // playing the game 
-    
+    bg = loadImage("../images/levels/" + level + "/1.png");
+    lines = loadStrings("../hitboxes/" + level + ".csv");
     // set the image as the background of the game
     background(bg);
     // [ick the direction that the player is moving based on the keys pressed 
@@ -144,6 +145,21 @@ void draw()
     //food.display();
   }else if(state == 2){
     // in the settings menu  
+    background(255, 170, 0);
+    image(logo, 118, 0, 750, 420);
+    fill(255);
+    text("Pick Your Level:", width/2, height/2);
+    if(level == "OMurphys"){
+      fill(173, 216, 230);
+    }
+    text("O'Murphy's", width/3, height/2 + 40);
+    fill(255);
+    if(level == "BeirMeadow"){
+      fill(173, 216, 230);
+    }
+    text("BeirMeadow", 2*width/3, height/2 + 40);
+    fill(255);
+    text("Back", width/2, 3*height/4);
   }else if(state == 3){
     // in the paused menu  
   }
@@ -194,6 +210,13 @@ void mouseClicked(){
     // play game  
   }else if(state == 2){
     // settings  
+    if(mouseX >= 244 && mouseX <= 418 && mouseY >= 431 && mouseY <= 459){
+      level = "OMurphys";
+    }else if(mouseX >= 572 && mouseX <= 760 && mouseY >= 431 && mouseY <= 459){
+      level = "BeirMeadow";
+    }else if(mouseX >= 454 && mouseX <= 542 && mouseY >= 588 && mouseY <= 623){
+      state = 0; 
+    }
   }else if(state == 3){
     // pause menu  
   }
