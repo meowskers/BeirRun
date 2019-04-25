@@ -86,8 +86,8 @@ void setup()
   level = "OMurphys";
   name = "Ed";
   player = new Player(start_x,start_y, width, height, name);
-  game_speed = 5;
-  gameSettings(level, name);
+  game_speed = 8;
+  gameSettings(level, 1, name);
   
   // create drinks
   drink = new Drink(width, height, player.hitbox, level);
@@ -119,12 +119,19 @@ void draw()
     
   }else if(state == 1){
 
-    // playing the game 
-    bg = loadImage("../images/levels/" + level + "/1.png");
-    lines = loadStrings("../hitboxes/" + level + ".csv");
+    if(player.distort == 5){
+      gameSettings(level, 2, name); 
+    }else if(player.distort == 10){
+      gameSettings(level, 3, name); 
+    }else if(player.distort == 15){
+      gameSettings(level, 4, name); 
+    }if(player.distort == 20){
+      gameSettings(level, 5, name); 
+    }
 
     // set the image as the background of the game
     background(bg);
+
     
     speed = game_speed;
     // pick the direction that the player is moving based on the keys pressed 
@@ -169,7 +176,9 @@ void draw()
       distort.randomize();
       next_distort += 100;
     }
-    //distort.pixelate();
+    if(player.distort >= 25){
+      distort.pixelate(); 
+    }
   
     //food.move(player);
     //food.display();
@@ -247,10 +256,10 @@ void draw()
 
 // set the level map and the character.
 // this is used for the setup and for the settings menu 
-void gameSettings(String level, String character){
+void gameSettings(String level, int distortion_level, String character){
   // set the level of the map 
   this.level = level;
-  bg = loadImage("../images/levels/" + level + "/1.png");
+  bg = loadImage("../images/levels/" + level + "/" + distortion_level + ".png");
   lines = loadStrings("../hitboxes/" + level + ".csv");
   
   // create the player and set the speed of the player 
@@ -318,6 +327,8 @@ void mouseClicked(){
       state = 1;
       game_start = millis();
       time_left = game_length;
+      player.distort = 0;
+      gameSettings(level, 1, name);
     }else if(mouseX >= 429 && mouseX <= 575 && mouseY >= 485 && mouseY <= 526){
       state = 2; 
     }
@@ -346,7 +357,7 @@ void mouseClicked(){
     // exit back to the main menu 
     else if(mouseX >= 450 && mouseX <= 550 && mouseY >= 745 && mouseY <= 780){
       // apply the changes to the game
-      gameSettings(level, name);
+      gameSettings(level, 1, name);
       state = 0; 
     }
   }else if(state == 3){
