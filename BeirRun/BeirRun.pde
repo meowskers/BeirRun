@@ -47,6 +47,7 @@ int curr_time = 0;
 int game_length = 120;
 int time_left;
 int game_start;
+int time_paused;
 
 // Boolean used to see if the location of the pointer should be printed out for the purpose of finding the coordinates of the hitbox
 boolean hitbox_checker = true;
@@ -259,7 +260,9 @@ void keyPressed(){
   if(key == 'p'){
     if(state == 1){
       state = 3;  
+      time_paused = millis();
     }else if(state == 3){
+      game_start += millis() - time_paused;
       state = 1;
     }
   }
@@ -335,6 +338,7 @@ void mouseClicked(){
   }else if(state == 3){
     // pause menu  
     if(mouseX >= 454 && mouseX <= 543 && mouseY >= 387 && mouseY <= 424){
+      game_start += millis() - time_paused;
       state = 1;
     }else if(mouseX >= 429 && mouseX <= 575 && mouseY >= 485 && mouseY <= 526){
       state = 0; 
