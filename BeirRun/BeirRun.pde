@@ -1,24 +1,14 @@
-// declaration for files to be loaded for html embedding 
-// these are for the map images
-/* @pjs preload="../images/levels/OMurphys/*.png"; */
-/* @pjs preload="../images/levels/BeirMeadow/*.png"; */
-// these are for the hitboxes for the level 
-/* @pjs preload="../hitboxes/OMurphys.csv"; */
-/* @pjs preload="../hitboxes/BeirMeadow.csv"; */
-// these are for the character sprites 
-/* @pjs preload="../images/characters/Cameron/*.png"; */
-/* @pjs preload="../images/characters/Ed/*.png"; */
-/* @pjs preload="../images/characters/Issac/*.png"; */
-/* @pjs preload="../images/characters/Max/*.png"; */
-// these are for the drink and powerup sprites */
-/* @pjs preload="../images/drinks/OMurphys/*.png"; */
-/* @pjs preload="../images/drinks/BeirMeadow/*.png"; */
 
 // used to see if the game should be at the main menu or not 
-boolean main;
 PImage logo;
-// used to pause the game on and off
-boolean pause;
+PFont font;
+
+// keeps track of the current state of the game
+// 0 = main menu
+// 1 = play game 
+// 2 = settings menu 
+// 3 = pause menu 
+int state = 1;
 
 // set the image for the level 
 PImage bg;
@@ -68,13 +58,16 @@ int[] coords;
 
 void setup()
 {
-  // set the game setting booleans 
-  main = false;
+  /*// set the game setting booleans 
+  main = true;
   pause = false;
+  settings = false;*/
   
   // setup for the main menu of the game 
   logo = loadImage("Assets/logo.png");
-  
+  font = createFont("Assets/fonts/greatlakesnf.ttf", 32);
+  textFont(font);
+  textAlign(CENTER, CENTER);
   
   // set the level of the map 
   level = "OMurphys";
@@ -107,14 +100,15 @@ void setup()
 
 void draw()
 {
-  if(main){
-    background(255, 235, 0);
+  if(state == 0){
+    // main menu
+    background(255, 170, 0);
     image(logo, 118, 0, 750, 420);
-  }else if(pause){
-    textSize(80);
-    fill(0,0,0);
-    text("Time's Up!\n Score: "+player.distort,375,375);
-  }else{
+    text("PLAY", width/2, height/2);
+    text("SETTINGS", width/2, width/2);
+    
+  }else if(state == 1){
+    // playing the game
     
     // set the image as the background of the game
     background(bg);
@@ -157,13 +151,21 @@ void draw()
     //food.display();
     
     fill(999,999,999);
-    textSize(20);
+    textSize(15);
     time_left= start_time - millis()/1000;
-    text("Time Left: "+time_left,15,17);
-    text("Score: "+player.distort,900,17);
+    text("Time Left: "+time_left,50,10);
+    text("Score: "+player.distort,950,10);
     if(time_left <= 0){
-      pause = true;
+      state = 4;
     }
+  }else if(state == 2){
+    // in the settings menu  
+  }else if(state == 3){
+    // in the paused menu
+  }else if(state == 4){
+    textSize(80);
+    fill(0,0,0);
+    text("Time's Up!\n Score: "+player.distort,500,400);
   }
 }
 
@@ -193,9 +195,23 @@ void keyReleased(){
   } 
 }
 
-// when the mouse is clicked, print out the coordinates. this is for setting up hitboxes. 
+// function for when the mouse is clicked. handles finding hitboxes and changing game states (game, menu, pause)
 void mouseClicked(){
+  // this is to find mouseX and mouseY for debugging and finding hitboxes 
   if(hitbox_checker){
     print(mouseX + ", " + mouseY + "\n");
   }
+  // this is for the changing of gamestates
+  // check the coordinates of the mouse and depending on the current game state, has options of different coords to change the game state 
+  if(state == 0){
+    // main menu
+    
+  }else if(state == 1){
+    // play game  
+  }else if(state == 2){
+    // settings  
+  }else if(state == 3){
+    // pause menu  
+  }
+  
 }
