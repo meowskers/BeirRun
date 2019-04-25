@@ -210,6 +210,7 @@ void draw()
       fill(0);
     }
     text("Max", 4*width/5, 3*height/5+180);
+    fill(255);
     text("Back", width/2, height-40);
     
   }else if(state == 3){
@@ -305,9 +306,19 @@ void mouseClicked(){
       level = "BeirMeadow";
     }
     // change the character that is being used 
-    
+    else if(mouseY >= 505 && mouseY <= 685){
+      if(mouseX >= 130 && mouseX <= 260){
+        name = "Cam";
+      }else if(mouseX >= 330 && mouseX <= 460){
+        name = "Ed";
+      }else if(mouseX >= 530 && mouseX <= 660){
+        name = "Issac";
+      }else if(mouseX >= 730 && mouseX <= 860){
+        name = "Max";
+      }
+    }
     // exit back to the main menu 
-    else if(mouseX >= 454 && mouseX <= 542 && mouseY >= 588 && mouseY <= 623){
+    else if(mouseX >= 450 && mouseX <= 550 && mouseY >= 745 && mouseY <= 780){
       // apply the changes to the game
       gameSettings(level, name);
       state = 0; 
