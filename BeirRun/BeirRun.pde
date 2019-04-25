@@ -52,6 +52,10 @@ boolean[] keys = {false, false, false, false};
 int time_diff = 5000;
 int curr_time = 0;
 
+//max time/game timer variables
+int start_time = 120;
+int time_left = start_time;
+
 // Boolean used to see if the location of the pointer should be printed out for the purpose of finding the coordinates of the hitbox
 boolean hitbox_checker = false;
 
@@ -106,6 +110,10 @@ void draw()
   if(main){
     background(255, 235, 0);
     image(logo, 118, 0, 750, 420);
+  }else if(pause){
+    textSize(80);
+    fill(0,0,0);
+    text("Time's Up!\n Score: "+player.distort,375,375);
   }else{
     
     // set the image as the background of the game
@@ -143,10 +151,19 @@ void draw()
       distort.randomize();
       next_distort += 100;
     }
-    distort.pixelate();
+    //distort.pixelate();
   
     //food.move(player);
     //food.display();
+    
+    fill(999,999,999);
+    textSize(20);
+    time_left= start_time - millis()/1000;
+    text("Time Left: "+time_left,15,17);
+    text("Score: "+player.distort,900,17);
+    if(time_left <= 0){
+      pause = true;
+    }
   }
 }
 
