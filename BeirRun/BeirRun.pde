@@ -8,7 +8,8 @@ PFont font;
 // 1 = play game 
 // 2 = settings menu 
 // 3 = pause menu 
-int state;
+// 4 = Gameover/time up overlay
+int state = 0;
 
 // set the image for the level 
 PImage bg;
@@ -41,6 +42,11 @@ boolean[] keys = {false, false, false, false};
 // Instantiate times for use of timing the spawn of the next batch of drinks 
 int time_diff = 5000;
 int curr_time = 0;
+
+//max time/game timer variables
+int game_length = 120;
+int time_left;
+int game_start;
 
 // Boolean used to see if the location of the pointer should be printed out for the purpose of finding the coordinates of the hitbox
 boolean hitbox_checker = true;
@@ -97,15 +103,20 @@ void draw()
     // main menu
     background(255, 170, 0);
     image(logo, 118, 0, 750, 420);
+    textFont(font);
+    fill(255);
     text("PLAY", width/2, height/2);
     text("SETTINGS", width/2, width/2);
     
   }else if(state == 1){
+
     // playing the game 
     bg = loadImage("../images/levels/" + level + "/1.png");
     lines = loadStrings("../hitboxes/" + level + ".csv");
+
     // set the image as the background of the game
     background(bg);
+    
     // [ick the direction that the player is moving based on the keys pressed 
     if(keys[0] && keys[1]){
       direction = 1; 
@@ -143,6 +154,14 @@ void draw()
   
     //food.move(player);
     //food.display();
+    
+    textSize(15);
+    time_left= game_length - (millis()-game_start)/1000;
+    text("Time Left: "+time_left,50,6);
+    text("Score: "+player.distort,950,6);
+    if(time_left <= 0){
+      state = 4;
+    }
   }else if(state == 2){
     // in the settings menu  
     background(255, 170, 0);
@@ -161,7 +180,11 @@ void draw()
     fill(255);
     text("Back", width/2, 3*height/4);
   }else if(state == 3){
-    // in the paused menu  
+    // in the paused menu
+  }else if(state == 4){
+    textSize(80);
+    fill(0,0,0);
+    text("Time's Up!\n Score: "+player.distort,500,400);
   }
 }
 
@@ -202,7 +225,9 @@ void mouseClicked(){
   if(state == 0){
     // main menu
     if(mouseX >= 454 && mouseX <= 543 && mouseY >= 387 && mouseY <= 424){
-      state = 1; 
+      state = 1;
+      game_start = millis();
+      time_left = game_length;
     }else if(mouseX >= 429 && mouseX <= 575 && mouseY >= 485 && mouseY <= 526){
       state = 2; 
     }
@@ -219,6 +244,8 @@ void mouseClicked(){
     }
   }else if(state == 3){
     // pause menu  
+  }else if(state == 4){
+    state = 0;
   }
   
 }
