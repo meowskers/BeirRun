@@ -57,6 +57,9 @@ String[] lines;
 String line;
 int[] coords;
 
+// Images of the chracters that are shown during the setting menu 
+PImage[] characters = new PImage[4];
+
 
 void setup()
 {
@@ -80,14 +83,18 @@ void setup()
   player = new Player(start_x,start_y, width, height, name);
   speed = 5;
   
-
-  
   // create drinks
   drink = new Drink(width, height, player.hitbox, level);
 
   // create the Distort class;
   distort = new Distort(width, height, 20);
   next_distort = 1000;
+  
+  // set the different character images used in the settings menu 
+  characters[0] = loadImage("../images/characters/Cam/1.png");
+  characters[1] = loadImage("../images/characters/Ed/1.png");
+  characters[2] = loadImage("../images/characters/Issac/1.png");
+  characters[3] = loadImage("../images/characters/Max/1.png");
 
   //food = new Powerup(width, height, player.hitbox);
 
@@ -163,18 +170,48 @@ void draw()
     background(255, 170, 0);
     image(logo, 118, 0, 750, 420);
     fill(255);
+    // choosing levels portion of settings
+    // change the color of the font to black when the map is chosen 
     text("Pick Your Level:", width/2, height/2);
     if(level == "OMurphys"){
-      fill(173, 216, 230);
+      fill(0);
     }
     text("O'Murphy's", width/3, height/2 + 40);
     fill(255);
     if(level == "BeirMeadow"){
-      fill(173, 216, 230);
+      fill(0);
     }
     text("BeirMeadow", 2*width/3, height/2 + 40);
     fill(255);
-    text("Back", width/2, 3*height/4);
+    // choosing the character portion of settings 
+    // first display all of the images and the name of the chracters beneath it
+    // change the font color of the character names when the character is chosen 
+    text("Pick Your Character", width/2, 3*height/5+10);
+    image(characters[0], width/5 - 60, 3*height/5+40, 120, 120); 
+    image(characters[1], 2*width/5 - 60, 3*height/5+40, 120, 120); 
+    image(characters[2], 3*width/5 - 60, 3*height/5+40, 120, 120); 
+    image(characters[3], 4*width/5 - 60, 3*height/5+40, 120, 120); 
+    if(name == "Cam"){
+      fill(0);
+    }
+    text("Cam", width/5, 3*height/5+180);
+    fill(255);
+    if(name == "Ed"){
+      fill(0);
+    }
+    text("Ed", 2*width/5, 3*height/5+180);
+    fill(255);
+    if(name == "Issac"){
+      fill(0);
+    }
+    text("Issac", 3*width/5, 3*height/5+180);
+    fill(255);
+    if(name == "Max"){
+      fill(0);
+    }
+    text("Max", 4*width/5, 3*height/5+180);
+    text("Back", width/2, height-40);
+    
   }else if(state == 3){
     // in the paused menu
   }else if(state == 4){
