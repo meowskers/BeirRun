@@ -26,7 +26,11 @@ Player player;
 int start_x = 500;
 int start_y = 500;
 int direction;
+int last_direction;
+// speed defines how fast the character is moving, can be either 0 or game_speed
+// game_speed defines how fast the character should move when moving 
 int speed;
+int game_speed;
 
 // Variable(s) for drinks
 Drink drink;
@@ -82,7 +86,7 @@ void setup()
   level = "OMurphys";
   name = "Ed";
   player = new Player(start_x,start_y, width, height, name);
-  speed = 5;
+  game_speed = 5;
   gameSettings(level, name);
   
   // create drinks
@@ -122,25 +126,35 @@ void draw()
     // set the image as the background of the game
     background(bg);
     
-    // [ick the direction that the player is moving based on the keys pressed 
+    speed = game_speed;
+    // pick the direction that the player is moving based on the keys pressed 
     if(keys[0] && keys[1]){
       direction = 1; 
+      last_direction = 1;
     }else if(keys[1] && keys[2]){
       direction = 3; 
+      last_direction = 3; 
     }else if(keys[2] && keys[3]){
       direction = 5; 
+      last_direction = 5;
     }else if(keys[3] && keys[0]){
       direction = 7; 
+      last_direction = 7;
     }else if(keys[0]){
       direction = 0; 
+      last_direction = 0;
     }else if(keys[1]){
       direction = 2; 
+      last_direction = 2;
     }else if(keys[2]){
       direction = 4; 
+      last_direction = 4;
     }else if(keys[3]){
       direction = 6; 
+      last_direction = 6;
     }else{
-      direction = -1; 
+      direction = last_direction; 
+      speed = 0;
     }
     
     // move the player 
