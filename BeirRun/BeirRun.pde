@@ -8,7 +8,8 @@ PFont font;
 // 1 = play game 
 // 2 = settings menu 
 // 3 = pause menu 
-int state = 1;
+// 4 = Gameover/time up overlay
+int state = 0;
 
 // set the image for the level 
 PImage bg;
@@ -47,7 +48,7 @@ int start_time = 120;
 int time_left = start_time;
 
 // Boolean used to see if the location of the pointer should be printed out for the purpose of finding the coordinates of the hitbox
-boolean hitbox_checker = false;
+boolean hitbox_checker = true;
 
 // CSVReader to take in the coordinates of the hitboxes 
 //Table table;
@@ -58,14 +59,11 @@ int[] coords;
 
 void setup()
 {
-  /*// set the game setting booleans 
-  main = true;
-  pause = false;
-  settings = false;*/
-  
+  // set the game state
+  state = 0;
   // setup for the main menu of the game 
   logo = loadImage("Assets/logo.png");
-  font = createFont("Assets/fonts/greatlakesnf.ttf", 32);
+  font = createFont("fantasy", 32);
   textFont(font);
   textAlign(CENTER, CENTER);
   
@@ -153,8 +151,8 @@ void draw()
     fill(999,999,999);
     textSize(15);
     time_left= start_time - millis()/1000;
-    text("Time Left: "+time_left,50,10);
-    text("Score: "+player.distort,950,10);
+    text("Time Left: "+time_left,50,6);
+    text("Score: "+player.distort,950,6);
     if(time_left <= 0){
       state = 4;
     }
@@ -205,13 +203,19 @@ void mouseClicked(){
   // check the coordinates of the mouse and depending on the current game state, has options of different coords to change the game state 
   if(state == 0){
     // main menu
-    
+    if(mouseX >= 454 && mouseX <= 543 && mouseY >= 387 && mouseY <= 424){
+      state = 1; 
+    }else if(mouseX >= 429 && mouseX <= 575 && mouseY >= 485 && mouseY <= 526){
+      state = 2; 
+    }
   }else if(state == 1){
     // play game  
   }else if(state == 2){
     // settings  
   }else if(state == 3){
     // pause menu  
+  }else if(state == 4){
+    state = 0;
   }
   
 }
