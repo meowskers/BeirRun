@@ -25,8 +25,7 @@ class Player{
   // used when constructing the character or when changing the character that is being used
   void setCharacter(String name){
     for(int i = 0; i < 8; i++){
-      int image_num = i + 1;
-      character_images[i] = loadImage("../images/characters/" + name + "/" + image_num + ".png");
+      character_images[i] = loadImage("../images/characters/" + name + "/" + i + ".png");
     } 
   }
   

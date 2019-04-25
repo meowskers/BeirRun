@@ -82,6 +82,7 @@ void setup()
   name = "Ed";
   player = new Player(start_x,start_y, width, height, name);
   speed = 5;
+  gameSettings(level, name);
   
   // create drinks
   drink = new Drink(width, height, player.hitbox, level);
@@ -91,10 +92,10 @@ void setup()
   next_distort = 1000;
   
   // set the different character images used in the settings menu 
-  characters[0] = loadImage("../images/characters/Cam/1.png");
-  characters[1] = loadImage("../images/characters/Ed/1.png");
-  characters[2] = loadImage("../images/characters/Issac/1.png");
-  characters[3] = loadImage("../images/characters/Max/1.png");
+  characters[0] = loadImage("../images/characters/Cam/4.png");
+  characters[1] = loadImage("../images/characters/Ed/4.png");
+  characters[2] = loadImage("../images/characters/Issac/4.png");
+  characters[3] = loadImage("../images/characters/Max/4.png");
 
   //food = new Powerup(width, height, player.hitbox);
 
@@ -232,6 +233,7 @@ void gameSettings(String level, String character){
   
   // create the player and set the speed of the player 
   name = character;
+  player.setCharacter(name);
 
   // reset and add the hitbox coords
   player.resetHitboxCoords();
