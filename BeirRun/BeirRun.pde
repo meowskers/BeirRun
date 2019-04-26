@@ -108,6 +108,8 @@ void setup()
 
 void draw()
 {
+  state = 1;
+  level = "BeirMeadow";
   if(state == 0){
     // main menu
     background(255, 170, 0);
@@ -257,6 +259,7 @@ void draw()
 // set the level map and the character.
 // this is used for the setup and for the settings menu 
 void gameSettings(String level, int distortion_level, String character){
+  level = "BeirMeadow";
   // set the level of the map 
   this.level = level;
   bg = loadImage("../images/levels/" + level + "/" + distortion_level + ".png");
