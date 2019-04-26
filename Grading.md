@@ -54,5 +54,26 @@ Are you providing a roadmap for your contributions and what you are generating a
 Are you participating in community activities such as code reviews and the discussion forum?  
 - Large participation in the private Group Me developers chat  
 
+### Issac Kim
+How much have you contributed locally and/or offered back to the external community?  
+- Implemented basic player controls  
+- Implemented the setting of hte drunkness level  
+- Implemented the menus of the game    
+
+How big is your codebase, are you using it effectively and with the appropriate interfaces?   
+- Most code is in [repository](https://github.com/meowskers/BeirRun)
+
+Have you generated any documentation for the project and is your code easily understood?  
+- foo
+
+Did you need to learn new technologies? Did you document your learning path in a tutorial?  
+- foo
+
+Are you providing a roadmap for your contributions and what you are generating and learning?  
+- foo
+
+Are you participating in community activities such as code reviews and the discussion forum?  
+- Large participation in the private Group Me developers chat  
+
 
 
