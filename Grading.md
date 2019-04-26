@@ -100,5 +100,36 @@ Are you providing a roadmap for your contributions and what you are generating a
 Are you participating in community activities such as code reviews and the discussion forum?  
 - Large participation in the private Group Me developers chat  
 
+### Edwin Wallis  
+How much have you contributed locally and/or offered back to the external community?  
+- Play Tested  
+- Produced all animations (Ed, Cam, Issac, Max, Beer for O'Murphy's, Beer for BeirMeadow, Pretzel, Shot, Water, BeirMeadow, and O'Murphy's) 
+- Wrote Documentations for [CONTRIBUTING.md](CONTRIBUTING.md)  
+- Wrote Documentations for Grading.md (this document)
+- Wrote Documentations for [README.md](README.md)
+- Wrote Documenations for [Style Guide.md](https://github.com/meowskers/BeirRun/blob/master/Style%20Guide.md)
+- Added [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) to repository 
+- Added [LICENSE.md](LICENSE.md) to reposistory 
+
+How big is your codebase, are you using it effectively and with the appropriate interfaces?   
+- Most code is in [repository](https://github.com/meowskers/BeirRun)
+
+Have you generated any documentation for the project and is your code easily understood?  
+- Wrote Documentations for [CONTRIBUTING.md](CONTRIBUTING.md)  
+- Wrote Documentations for Grading.md (this document)
+- Wrote Documentations for [README.md](README.md)
+- Wrote Documenations for [Style Guide.md]
+
+Did you need to learn new technologies? Did you document your learning path in a tutorial?  
+- Learned how to produce good animations. I used [this](https://www.pixilart.com) to make images.  
+- Learned how to distort images  
+
+Are you providing a roadmap for your contributions and what you are generating and learning?  
+- Wrote Documentations for [CONTRIBUTING.md](CONTRIBUTING.md)  
+- Hard to document how to make animations  
+
+Are you participating in community activities such as code reviews and the discussion forum?  
+- Large participation in the private Group Me developers chat  
+
 
 
