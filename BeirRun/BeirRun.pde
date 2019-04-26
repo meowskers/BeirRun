@@ -86,7 +86,7 @@ void setup()
   level = "OMurphys";
   name = "Ed";
   player = new Player(start_x,start_y, width, height, name);
-  game_speed = 8;
+  game_speed = 6;
   gameSettings(level, 1, name);
   
   // create drinks
