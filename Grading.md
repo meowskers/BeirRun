@@ -31,3 +31,28 @@ Does your project have comunications channels and can you find them?
 - We have a public [discussion forum](https://discordapp.com/invite/8amPvy) for all and is linked in the README.md
 
 ## Contributions 
+### Max Escaler  
+How much have you contributed locally and/or offered back to the external community?  
+- Play Tested  
+- Implemented and deployed website  
+- Styled [website](https://max-escaler.github.io/BeirRun/)  
+- Made presentation  
+
+How big is your codebase, are you using it effectively and with the appropriate interfaces?   
+- Most code is in [repository](https://github.com/meowskers/BeirRun)
+
+Have you generated any documentation for the project and is your code easily understood?  
+- foo
+
+Did you need to learn new technologies? Did you document your learning path in a tutorial?  
+- Learned processing
+- foo
+
+Are you providing a roadmap for your contributions and what you are generating and learning?  
+- foo
+
+Are you participating in community activities such as code reviews and the discussion forum?  
+- Large participation in the private Group Me developers chat  
+
+
+
