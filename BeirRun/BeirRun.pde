@@ -185,6 +185,7 @@ void draw()
     
     textSize(15);
     time_left= int(game_length - (millis()-game_start)/1000);
+    fill(255);
     text("Time Left: "+time_left,50,6);
     text("Score: "+player.distort,950,6);
     if(time_left <= 0){
@@ -249,7 +250,7 @@ void draw()
     text("EXIT", width/2, width/2);
   }else if(state == 4){
     textSize(80);
-    fill(0,0,0);
+    fill(255);
     text("Time's Up!\n Score: "+player.distort,500,400);
   }
 }
@@ -329,6 +330,7 @@ void mouseClicked(){
       time_left = game_length;
       player.distort = 0;
       gameSettings(level, 1, name);
+      drink = new Drink(width, height, player.hitbox, level);
     }else if(mouseX >= 429 && mouseX <= 575 && mouseY >= 485 && mouseY <= 526){
       state = 2; 
     }
