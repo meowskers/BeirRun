@@ -16,7 +16,7 @@ class Drink extends Pickup{
     sprite_index = (int)random(2);
   }
   
-  // display drink ball
+  // display drink
   void display(){
     imageMode(CENTER);
     image(sprites[sprite_index], x, y);

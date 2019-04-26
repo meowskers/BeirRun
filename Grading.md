@@ -88,11 +88,11 @@ How big is your codebase, are you using it effectively and with the appropriate 
 - Most code is in [repository](https://github.com/meowskers/BeirRun)
 
 Have you generated any documentation for the project and is your code easily understood?  
-- foo
+- Did not directly generate documentation, but helped in some documentation discussion
+- Commented code where clarification needed
 
 Did you need to learn new technologies? Did you document your learning path in a tutorial?  
 - Learned processing
-- foo
 
 Are you providing a roadmap for your contributions and what you are generating and learning?  
 - Assisted in writing blog post 3
