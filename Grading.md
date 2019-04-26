@@ -1,7 +1,7 @@
 # Grading  
 ## Project Structure
 Does your project have the artifacts we exepect and can you find them?
-- We have a [MIT License](LICENSE) 
+- We have a [MIT License](LICENSE)
 - We have a [README](README.md)
 - We have an [Issue Tracker](https://github.com/meowskers/BeirRun/issues)
 - We have a private [discussion forum](https://chat.rcos.io/open-source/channels/beirrun) for developers
@@ -20,7 +20,7 @@ Does your proejct have a website and can you find them?
 - We have a [Website](https://max-escaler.github.io/BeirRun/) and there are mutliple links through out the repository including one in our README.md  
 
 Does your project have a Code of Conduct and can you find it?  
-- We have a [Code of Conduct](https://github.com/meowskers/BeirRun/blob/master/CODE_OF_CONDUCT.md) and it is located in the repository and linked in the README.md 
+- We have a [Code of Conduct](https://github.com/meowskers/BeirRun/blob/master/CODE_OF_CONDUCT.md) and it is located in the repository and linked in the README.md
 
 Does your project have a style guidelines document and can you find it?
 -  We have a [Style Guide](https://github.com/meowskers/BeirRun/blob/master/Style%20Guide.md) and it is located in the repository and linked in the README.md
@@ -30,7 +30,7 @@ Does your project have comunications channels and can you find them?
 - We also have a private Group Me group chat for developers
 - We have a public [discussion forum](https://discordapp.com/invite/8amPvy) for all and is linked in the README.md
 
-## Contributions 
+## Contributions
 ### Max Escaler  
 How much have you contributed locally and/or offered back to the external community?  
 - Play Tested  
@@ -56,21 +56,24 @@ Are you participating in community activities such as code reviews and the discu
 
 ### Issac Kim
 How much have you contributed locally and/or offered back to the external community?  
-- Implemented basic player controls  
-- Implemented the setting of hte drunkness level  
-- Implemented the menus of the game    
+- Implemented basic player controls and movement
+- Setup of the game in map and character images
+- Implemented the setting of the drunkness level  
+- Implemented the menus of the game  
+- Distortion overlay on top of image
+- Play tested as building   
 
 How big is your codebase, are you using it effectively and with the appropriate interfaces?   
 - Most code is in [repository](https://github.com/meowskers/BeirRun)
 
 Have you generated any documentation for the project and is your code easily understood?  
-- foo
+- I have not generated documentation outside of the comments with brief explanations of code in the source code.
 
 Did you need to learn new technologies? Did you document your learning path in a tutorial?  
-- foo
+- I did not learn new technologies
 
 Are you providing a roadmap for your contributions and what you are generating and learning?  
-- foo
+- Commits on GitHub
 
 Are you participating in community activities such as code reviews and the discussion forum?  
 - Large participation in the private Group Me developers chat  
@@ -103,13 +106,13 @@ Are you participating in community activities such as code reviews and the discu
 ### Edwin Wallis  
 How much have you contributed locally and/or offered back to the external community?  
 - Play Tested  
-- Produced all animations (Ed, Cam, Issac, Max, Beer for O'Murphy's, Beer for BeirMeadow, Pretzel, Shot, Water, BeirMeadow, and O'Murphy's) 
+- Produced all animations (Ed, Cam, Issac, Max, Beer for O'Murphy's, Beer for BeirMeadow, Pretzel, Shot, Water, BeirMeadow, and O'Murphy's)
 - Wrote Documentations for [CONTRIBUTING.md](CONTRIBUTING.md)  
 - Wrote Documentations for Grading.md (this document)
 - Wrote Documentations for [README.md](README.md)
 - Wrote Documenations for [Style Guide.md](https://github.com/meowskers/BeirRun/blob/master/Style%20Guide.md)
-- Added [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) to repository 
-- Added [LICENSE.md](LICENSE.md) to reposistory 
+- Added [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) to repository
+- Added [LICENSE.md](LICENSE.md) to reposistory
 
 How big is your codebase, are you using it effectively and with the appropriate interfaces?   
 - Most code is in [repository](https://github.com/meowskers/BeirRun)
@@ -130,6 +133,3 @@ Are you providing a roadmap for your contributions and what you are generating a
 
 Are you participating in community activities such as code reviews and the discussion forum?  
 - Large participation in the private Group Me developers chat  
-
-
-
