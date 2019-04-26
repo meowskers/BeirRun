@@ -19,11 +19,14 @@ class Player{
     this.max_x = max_x;
     this.max_y = max_y;
     hitbox = new ArrayList<int[]>();
+    setCharacter(name);
+  }
+  
+  // used when constructing the character or when changing the character that is being used
+  void setCharacter(String name){
     for(int i = 0; i < 8; i++){
-      int image_num = i + 1;
-      character_images[i] = loadImage("../images/characters/" + name + "/" + image_num + ".png");
-    }
-    
+      character_images[i] = loadImage("../images/characters/" + name + "/" + i + ".png");
+    } 
   }
   
   // movement the player
@@ -97,8 +100,8 @@ class Player{
       y_distort = -1 * (distort / sqrt(2));
     }
     
-    x += x_vel * speed + x_distort;
-    y += y_vel * speed + y_distort;
+    x += x_vel * speed + x_distort/2;
+    y += y_vel * speed + y_distort/2;
         // stop the player when they approach walls or hitboxes
     if(x <= size / 4){
       x = size / 4;
@@ -133,6 +136,11 @@ class Player{
   // add a pair of coordinates for the hitboxes within the map 
   void addHitboxCoords(int[] coords){
     hitbox.add(coords);
+  }
+  
+  // used when changing from map to map, allow the reset of the hitbox array 
+  void resetHitboxCoords(){
+    hitbox.clear(); 
   }
   
   // drink function, when the player is next to a drink the drink class will call this function 
