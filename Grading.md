@@ -75,5 +75,30 @@ Are you providing a roadmap for your contributions and what you are generating a
 Are you participating in community activities such as code reviews and the discussion forum?  
 - Large participation in the private Group Me developers chat  
 
+### Cameron Riley  
+How much have you contributed locally and/or offered back to the external community?  
+- Implemented pickup superclass  
+- Implemented drink subclass  
+- Implemented currently unused powerup/food subclass  
+- Implemented drink/pickup/spawns/moving/drunk effect
+- Implemented score counter
+- Implemented timer
+
+How big is your codebase, are you using it effectively and with the appropriate interfaces?   
+- Most code is in [repository](https://github.com/meowskers/BeirRun)
+
+Have you generated any documentation for the project and is your code easily understood?  
+- foo
+
+Did you need to learn new technologies? Did you document your learning path in a tutorial?  
+- Learned processing
+- foo
+
+Are you providing a roadmap for your contributions and what you are generating and learning?  
+- Assisted in writing blog post 3
+
+Are you participating in community activities such as code reviews and the discussion forum?  
+- Large participation in the private Group Me developers chat  
+
 
 
